@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 
 // NOTE: Ensure you have these files in your project folder!
-import BEZA_PICTURE_1 from "./beza1.jpg";
-import BEZA_PICTURE_2 from "./beza2.jpg";
+import BEZA_PICTURE_1 from "./src/assets/beza1.jpg";
+import BEZA_PICTURE_2 from "./src/assets/beza2.jpg";
 
 // Floating heart component for the background
 const FloatingHearts = () => {
