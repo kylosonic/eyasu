@@ -4,8 +4,6 @@ import { createRoot } from 'react-dom/client';
 // NOTE: Ensure you have these files in your project folder!
 const BEZA_PICTURE_1 = "./beza1.jpg"; 
 const BEZA_PICTURE_2 = "./beza2.jpg"; 
-// You can add a third picture for the success screen or reuse one
-const SUCCESS_PICTURE = "./beza_success.jpg"; // Or change to beza1.jpg if you only have two
 
 // Floating heart component for the background
 const FloatingHearts = () => {
@@ -124,21 +122,31 @@ export default function App() {
       <div className="flex flex-col items-center justify-center min-h-screen relative overflow-hidden text-center p-4">
         <FloatingHearts />
         
-        <div className="glass p-12 rounded-3xl z-10 fade-in border-2 border-white/50 max-w-2xl mx-auto">
-          <h1 className="text-6xl md:text-8xl font-romantic text-rose-600 mb-8 animate-bounce drop-shadow-md">
+        <div className="glass p-8 md:p-12 rounded-3xl z-10 fade-in border-2 border-white/50 max-w-4xl mx-auto w-full">
+          <h1 className="text-5xl md:text-8xl font-romantic text-rose-600 mb-8 animate-bounce drop-shadow-md leading-tight">
             Yay! I love you Beza! <span className="inline-block animate-pulse">❤️</span>
           </h1>
           
-          <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto mb-8 rounded-full overflow-hidden border-8 border-rose-200 shadow-2xl heart-beat">
-            <img 
-              src={SUCCESS_PICTURE} 
-              onError={(e) => {
-                // Fallback if success picture is missing, show one of the others
-                (e.target as HTMLImageElement).src = BEZA_PICTURE_1;
-              }}
-              alt="Success" 
-              className="w-full h-full object-cover"
-            />
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 mb-10">
+            {/* Picture 1 */}
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-white shadow-2xl transform -rotate-6 hover:rotate-0 transition-transform duration-500 heart-beat" style={{ animationDelay: '0s' }}>
+              <div className="absolute inset-0 bg-rose-500/10 mix-blend-overlay"></div>
+              <img 
+                src={BEZA_PICTURE_1} 
+                alt="Beza Happy 1" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Picture 2 */}
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border-4 border-white shadow-2xl transform rotate-6 hover:rotate-0 transition-transform duration-500 heart-beat" style={{ animationDelay: '0.75s' }}>
+              <div className="absolute inset-0 bg-rose-500/10 mix-blend-overlay"></div>
+              <img 
+                src={BEZA_PICTURE_2} 
+                alt="Beza Happy 2" 
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
           
           <p className="text-3xl text-rose-800 font-serif-elegant mt-6">
